@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: app
+    build: ./infra/php
+    volumes:
+      - ./backend:/code
+
+  web:
+    container_name: web
+    build: ./infra/nginx
+    ports:
+      - 10080:80
+    volumes:
+      - ./backend:/code
+
+  db:
+    container_name: db
+    build: ./infra/mysql
+    volumes:
+      - db-store:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+volumes:
+  db-store:
