@@ -17,10 +17,18 @@ Route::get('/', function () {
     return view('pages.top.index');
 });
 
-Route::prefix('mypage')->group(function () {
-    Route::get('/', function () {
-        return view('pages.mypage.index');
-    })->middleware(['auth'])->name('mypage');
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('mypage')->group(function () {
+
+        Route::get('/', function () {
+            return view('pages.mypage.index');
+        })->name('mypage.index');
+
+        Route::get('/post', function () {
+            return view('pages.mypage.post');
+        })->name('mypage.posts');
+    });
 });
+
 
 require __DIR__ . '/auth.php';
