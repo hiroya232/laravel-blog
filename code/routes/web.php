@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('pages.top.index');
 });
 
 Route::get('/mypage', function () {
-    return view('mypage');
+    return view('pages.mypage.index');
 })->middleware(['auth'])->name('mypage');
 
 require __DIR__ . '/auth.php';
