@@ -8,13 +8,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-    <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
@@ -22,7 +17,6 @@
     <div class="min-h-screen bg-gray-100">
         @include('pages.layouts.navigation')
 
-        <!-- Page Content -->
         <main>
             @yield('content')
         </main>
